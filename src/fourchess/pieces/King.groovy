@@ -88,7 +88,7 @@ public class King extends Piece
 		
 		for (Point point : board)
 		{
-			Piece piece = board.getPiece(point.x, point.y);
+			Piece piece = board.getPiece(point.x.intValue(), point.y.intValue());
 			
 			if (piece != null && !piece.owner.equals(owner) && ! (piece instanceof King))
 			{

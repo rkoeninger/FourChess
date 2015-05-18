@@ -169,7 +169,7 @@ public class Game
 	
 	public Piece getSelectedPiece()
 	{
-		return selection == null ? null : board.getPiece(selection.x, selection.y);
+		return selection == null ? null : board.getPiece(selection.x.intValue(), selection.y.intValue());
 	}
 	
 	public Phase getPhase()
@@ -211,10 +211,10 @@ public class Game
 	
 	private void setupStartingPieces()
 	{
-		setupStartingPieces(players[0], Direction.N);
-		setupStartingPieces(players[1], Direction.E);
-		setupStartingPieces(players[2], Direction.S);
-		setupStartingPieces(players[3], Direction.W);
+		setupStartingPieces(players[0], N);
+		setupStartingPieces(players[1], E);
+		setupStartingPieces(players[2], S);
+		setupStartingPieces(players[3], W);
 	}
 	
 	private void setupStartingPieces(Player player, Direction position)

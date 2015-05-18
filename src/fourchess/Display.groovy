@@ -179,7 +179,7 @@ public class Display extends JComponent
 			if (game.board.isValidSpot((int) pBoard.x, (int) pBoard.y))
 			{
 				g.setColor(((pBoard.x.intValue() ^ pBoard.y.intValue()) % 2 == 0) ? squareColor1 : squareColor2);
-				g.fillRect(pView.x * tileSize, pView.y * tileSize, tileSize, tileSize);
+				g.fillRect(pView.x.intValue() * tileSize, pView.y.intValue() * tileSize, tileSize, tileSize);
 				
 				Piece piece = game.board.getPiece((int) pBoard.x, (int) pBoard.y);
 				
@@ -187,8 +187,8 @@ public class Display extends JComponent
 				{
 					g.setColor(piece.owner.color);
 					drawCenteredString(g, piece.type,
-						pView.x * tileSize,
-						pView.y * tileSize,
+						pView.x.intValue() * tileSize,
+						pView.y.intValue() * tileSize,
 						tileSize,
 						tileSize);
 				}
@@ -262,8 +262,8 @@ public class Display extends JComponent
 		Player currentPlayer = game.getCurrentPlayer();
 		g.setColor(currentPlayer.color);
 		g.drawRect(
-			pSelectionView.x * tileSize,
-			pSelectionView.y * tileSize,
+			pSelectionView.x.intValue() * tileSize,
+			pSelectionView.y.intValue() * tileSize,
 			tileSize,
 			tileSize);
 		

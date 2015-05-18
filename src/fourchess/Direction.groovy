@@ -23,10 +23,10 @@ public enum Direction
 	{
 		switch (this)
 		{
-		case E: return new Point(p.x + 1, p.y);
-		case N: return new Point(p.x, p.y - 1);
-		case W: return new Point(p.x - 1, p.y);
-		case S: return new Point(p.x, p.y + 1);
+		case E: return new Point(p.x.intValue() + 1, p.y.intValue());
+		case N: return new Point(p.x.intValue(), p.y.intValue() - 1);
+		case W: return new Point(p.x.intValue() - 1, p.y.intValue());
+		case S: return new Point(p.x.intValue(), p.y.intValue() + 1);
 		}
 		
 		throw new IllegalArgumentException("Undefined Direction");
@@ -36,10 +36,10 @@ public enum Direction
 	{
 		switch (this)
 		{
-		case E: return new Point(p.x + 1, p.y - 1);
-		case N: return new Point(p.x - 1, p.y - 1);
-		case W: return new Point(p.x - 1, p.y + 1);
-		case S: return new Point(p.x + 1, p.y + 1);
+		case E: return new Point(p.x.intValue() + 1, p.y.intValue() - 1);
+		case N: return new Point(p.x.intValue() - 1, p.y.intValue() - 1);
+		case W: return new Point(p.x.intValue() - 1, p.y.intValue() + 1);
+		case S: return new Point(p.x.intValue() + 1, p.y.intValue() + 1);
 		}
 		
 		throw new IllegalArgumentException("Undefined Direction");
@@ -49,10 +49,10 @@ public enum Direction
 	{
 		switch (this)
 		{
-		case E: return new Point(p.x + 1, p.y + 1);
-		case N: return new Point(p.x + 1, p.y - 1);
-		case W: return new Point(p.x - 1, p.y - 1);
-		case S: return new Point(p.x - 1, p.y + 1);
+		case E: return new Point(p.x.intValue() + 1, p.y.intValue() + 1);
+		case N: return new Point(p.x.intValue() + 1, p.y.intValue() - 1);
+		case W: return new Point(p.x.intValue() - 1, p.y.intValue() - 1);
+		case S: return new Point(p.x.intValue() - 1, p.y.intValue() + 1);
 		}
 		
 		throw new IllegalArgumentException("Undefined Direction");

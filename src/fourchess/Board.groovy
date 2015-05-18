@@ -56,7 +56,7 @@ public class Board implements Iterable<Point>
 	{
 		for (Point p : this)
 		{
-			Piece piece = getPiece(p.x, p.y);
+			Piece piece = getPiece(p.x.intValue(), p.y.intValue());
 			
 			if (piece != null && piece.owner.equals(player) && (piece instanceof King))
 			{
@@ -97,7 +97,7 @@ public class Board implements Iterable<Point>
 	public Piece movePiece(Piece piece, int x, int y)
 	{
 		Point piecePosition = find(piece);
-		return movePiece(piecePosition.x, piecePosition.y, x, y);
+		return movePiece(piecePosition.x.intValue(), piecePosition.y.intValue(), x, y);
 	}
 	
 	/**
@@ -115,7 +115,7 @@ public class Board implements Iterable<Point>
 			moves.remove(moves.size() - 1);
 		}
 		
-		Move move = null;
+		Move move;
 		
 		// Check for castling, move rook as well
 		if (piece.type.equals("K") && (Math.abs(x1 - x2) == 2) ^ (Math.abs(y1 - y2) == 2))
@@ -175,7 +175,7 @@ public class Board implements Iterable<Point>
 	public Point find(Piece piece)
 	{
 		for (Point p : this)
-			if (pieces[p.x][p.y] == piece)
+			if (pieces[p.x.intValue()][p.y.intValue()] == piece)
 				return new Point(p);
 		
 		return new Point(-1, -1);
@@ -216,7 +216,7 @@ public class Board implements Iterable<Point>
 		Board copy = new Board();
 		
 		for (Point p : this)
-			copy.pieces[p.x][p.y] = this.pieces[p.x][p.y];
+			copy.pieces[p.x.intValue()][p.y.intValue()] = this.pieces[p.x.intValue()][p.y.intValue()];
 		
 		return copy;
 	}

@@ -74,7 +74,7 @@ public class Rules
 	
 	public static void checkSpotAttackOnly(Board board, Piece piece, Point p, Set<Point> moves)
 	{
-		checkSpotAttackOnly(board, piece, p.x, p.y, moves);
+		checkSpotAttackOnly(board, piece, p.x.intValue(), p.y.intValue(), moves);
 	}
 	
 	public static void checkSpotAttackOnly(Board board, Piece piece, int x, int y, Set<Point> moves)
@@ -92,7 +92,7 @@ public class Rules
 	
 	public static void checkSpotMoveOnly(Board board, Piece piece, Point p, Set<Point> moves)
 	{
-		checkSpotMoveOnly(board, piece, p.x, p.y, moves);
+		checkSpotMoveOnly(board, piece, p.x.intValue(), p.y.intValue(), moves);
 	}
 	
 	public static void checkSpotMoveOnly(Board board, Piece piece, int x, int y, Set<Point> moves)
@@ -112,7 +112,7 @@ public class Rules
 	{
 		Point pa = attacker.board.find(attacker);
 		Point pt = attacker.board.find(target);
-		return checkThreat(attacker, pa.x, pa.y, pt.x, pt.y);
+		return checkThreat(attacker, pa.x.intValue(), pa.y.intValue(), pt.x.intValue(), pt.y.intValue());
 	}
 	
 	public static boolean checkThreat(Piece attacker, int xa, int ya, int xt, int yt)
