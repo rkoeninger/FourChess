@@ -8,7 +8,13 @@ Requires IntelliJ IDEA Community Edition 14 or higher.
 
 Requires Groovy and Gradle to be installed and set up in IntelliJ.
 
-This project was formerly a Java Eclipse project hosted on Google Code at https://code.google.com/p/fourchess/.
+[Download Groovy](http://www.groovy-lang.org/download.html)
+
+[Download Gradle](https://gradle.org/)
+
+Extract both to your Program Files or wherever. They need to be set up in IntelliJ as global libraries.
+
+This project was formerly a Java Eclipse project hosted on Google Code at https://code.google.com/p/fourchess/.    
 
 Graphics are done with Java Swing.
 
