@@ -1,8 +1,7 @@
-package fourchess;
+package fourchess
 
-import java.awt.Color;
-
-import javax.swing.UIManager;
+import java.awt.Color
+import javax.swing.UIManager
 
 public class FourChess
 {
@@ -10,11 +9,11 @@ public class FourChess
 	{
 		try
 		{
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName())
 		}
 		catch (Exception ignored)
 		{
-			System.out.println("Unable to load system look and feel");
+			System.out.println("Unable to load system look and feel")
 		}
 		
 		Game game = new Game.Builder()
@@ -22,11 +21,11 @@ public class FourChess
 			.addPlayer("Job", new Color(127, 127, 255))
 			.addPlayer("Joe", Color.GREEN)
 			.addPlayer("Roe", Color.YELLOW)
-			.build();
+			.build()
 		
-		DisplayFrame frame = new DisplayFrame(game);
-		frame.display.setPerspectiveFollowsActivePlayer(false);
-		frame.setVisible(true);
+		DisplayFrame frame = new DisplayFrame(game)
+		frame.display.setPerspectiveFollowsActivePlayer(false)
+		frame.setVisible(true)
 	}
 	
 }

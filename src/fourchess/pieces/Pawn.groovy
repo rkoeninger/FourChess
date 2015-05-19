@@ -25,10 +25,10 @@ public class Pawn extends Piece
 		
 		if (!hasMoved())
 		{
-			Rules.checkSpotMoveOnly(board, this, facing.shiftForward(facing.shiftForward(position)), moves);
+			Rules.checkSpotMoveOnly(board, facing.shiftForward(facing.shiftForward(position)), moves);
 		}
 		
-		Rules.checkSpotMoveOnly(board, this, facing.shiftForward(position), moves);
+		Rules.checkSpotMoveOnly(board, facing.shiftForward(position), moves);
 		Rules.checkSpotAttackOnly(board, this, facing.shiftForwardLeft(position), moves);
 		Rules.checkSpotAttackOnly(board, this, facing.shiftForwardRight(position), moves);
 		

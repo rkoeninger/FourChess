@@ -1,6 +1,5 @@
 package fourchess
 import java.awt.*
-import java.awt.geom.Point2D
 
 public class Rules
 {
@@ -90,12 +89,12 @@ public class Rules
 		}
 	}
 	
-	public static void checkSpotMoveOnly(Board board, Piece piece, Point p, Set<Point> moves)
+	public static void checkSpotMoveOnly(Board board, Point p, Set<Point> moves)
 	{
-		checkSpotMoveOnly(board, piece, p.x.intValue(), p.y.intValue(), moves);
+		checkSpotMoveOnly(board, p.x.intValue(), p.y.intValue(), moves);
 	}
 	
-	public static void checkSpotMoveOnly(Board board, Piece piece, int x, int y, Set<Point> moves)
+	public static void checkSpotMoveOnly(Board board, int x, int y, Set<Point> moves)
 	{
 		if (board.isValidSpot(x, y))
 		{
