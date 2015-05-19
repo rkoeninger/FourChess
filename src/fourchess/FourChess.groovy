@@ -24,8 +24,8 @@ public class FourChess
 			.build()
 		
 		DisplayFrame frame = new DisplayFrame(game)
-		frame.display.setPerspectiveFollowsActivePlayer(false)
-		frame.setVisible(true)
+		frame.display.setPerspectiveFollowsActivePlayer false
+		frame.setVisible true
 	}
 	
 }

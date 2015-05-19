@@ -1,37 +1,27 @@
-package fourchess.pieces;
+package fourchess.pieces
+import fourchess.*
+import java.awt.*
+import static fourchess.Rules.checkSpotAttackOnly
+import static fourchess.Rules.checkSpotMoveOnly;
 
-import java.awt.Point;
-import java.util.Set;
-
-import fourchess.Board;
-import fourchess.Direction;
-import fourchess.Piece;
-import fourchess.Player;
-import fourchess.Rules;
-
-public class Pawn extends Piece
-{
-	public final Direction facing;
+class Pawn extends Piece {
+	final Direction facing
 	
-	public Pawn(Board board, Player owner, Direction facing)
-	{
-		super("P", 1, board, owner);
-		this.facing = facing;
+	Pawn(Board board, Player owner, Direction facing) {
+		super("P", 1, board, owner)
+		this.facing = facing
 	}
 	
-	public Set<Point> getValidMoves(Point position)
-	{
-		Set<Point> moves = super.getValidMoves(position);
+	Set<Point> getValidMoves(Point position) {
+		def moves = super.getValidMoves(position)
 		
 		if (!hasMoved())
-		{
-			Rules.checkSpotMoveOnly(board, facing.shiftForward(facing.shiftForward(position)), moves);
-		}
+			checkSpotMoveOnly(board, facing.shiftForward(facing.shiftForward(position)), moves)
 		
-		Rules.checkSpotMoveOnly(board, facing.shiftForward(position), moves);
-		Rules.checkSpotAttackOnly(board, this, facing.shiftForwardLeft(position), moves);
-		Rules.checkSpotAttackOnly(board, this, facing.shiftForwardRight(position), moves);
+		checkSpotMoveOnly(board, facing.shiftForward(position), moves)
+		checkSpotAttackOnly(board, this, facing.shiftForwardLeft(position), moves)
+		checkSpotAttackOnly(board, this, facing.shiftForwardRight(position), moves)
 		
-		return moves;
+		moves
 	}
 }

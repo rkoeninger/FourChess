@@ -1,46 +1,48 @@
 package fourchess
 import java.awt.*
 
-public class Rules
+class Rules
 {
-	public static void checkPath(Piece piece, int x, int y, int dx, int dy, Set<Point> moves)
+	static void checkPath(Piece piece, int x, int y, int dx, int dy, Set<Point> moves)
 	{
-		for (;;)
+		while (true)
 		{
-			x += dx;
-			y += dy;
+			x += dx
+			y += dy
 			
 			if (checkSpot(piece, x, y, moves))
-				break;
+				break
 		}
 	}
 	
-	public static boolean pathContainsAnyPiece(Board board, int x, int y, int dx, int dy, int count)
+	static boolean pathContainsAnyPiece(Board board, int x, int y, int dx, int dy, int count)
 	{
-		for (int c = 0; c < count; ++c)
+        def result = false
+
+		count.times
 		{
-			x += dx;
-			y += dy;
+			x += dx
+			y += dy
 			
 			if (board.hasPiece(x, y))
-				return true;
+				result = true
 		}
 		
-		return false;
+		result
 	}
 	
 	public static Piece getPieceInPath(Board board, int x, int y, int dx, int dy)
 	{
-		dx = (int) Math.signum(dx);
-		dy = (int) Math.signum(dy);
-		x += dx;
-		y += dy;
+		dx = (int) Math.signum(dx)
+		dy = (int) Math.signum(dy)
+		x += dx
+		y += dy
 
 		while (board.isValidSpot(x, y))
 			if (board.hasPiece(x, y))
-				return board.getPiece(x, y);
+				return board.getPiece(x, y)
 
-		return null;
+		return null
 	}
 	
 	/**

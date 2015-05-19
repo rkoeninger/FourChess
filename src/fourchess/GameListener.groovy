@@ -1,6 +1,5 @@
 package fourchess
 
-public interface GameListener
-{
-	public void turnStart()
+interface GameListener {
+	void turnStart()
 }

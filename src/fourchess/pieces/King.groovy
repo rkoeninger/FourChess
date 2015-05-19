@@ -1,13 +1,10 @@
-package fourchess.pieces;
+package fourchess.pieces
+import fourchess.Board
+import fourchess.Piece
+import fourchess.Player
+import fourchess.Rules
 
-import java.awt.Point;
-import java.util.HashSet;
-import java.util.Set;
-
-import fourchess.Board;
-import fourchess.Piece;
-import fourchess.Player;
-import fourchess.Rules;
+import java.awt.*
 
 public class King extends Piece
 {
@@ -20,14 +17,14 @@ public class King extends Piece
 	{
 		Set<Point> moves = super.getValidMoves(position);
 
-		Rules.checkSpot(this, position.x, position.y - 1, moves);     // Up
-		Rules.checkSpot(this, position.x, position.y + 1, moves);     // Down
-		Rules.checkSpot(this, position.x - 1, position.y, moves);     // Left
-		Rules.checkSpot(this, position.x + 1, position.y, moves);     // Right
-		Rules.checkSpot(this, position.x - 1, position.y - 1, moves); // Up-Left
-		Rules.checkSpot(this, position.x - 1, position.y + 1, moves); // Down-Left
-		Rules.checkSpot(this, position.x + 1, position.y - 1, moves); // Up-Right 
-		Rules.checkSpot(this, position.x + 1, position.y + 1, moves); // Down-Right
+		Rules.checkSpot(this, position.x.intValue(), position.y.intValue() - 1, moves);     // Up
+		Rules.checkSpot(this, position.x.intValue(), position.y.intValue() + 1, moves);     // Down
+		Rules.checkSpot(this, position.x.intValue() - 1, position.y.intValue(), moves);     // Left
+		Rules.checkSpot(this, position.x.intValue() + 1, position.y.intValue(), moves);     // Right
+		Rules.checkSpot(this, position.x.intValue() - 1, position.y.intValue() - 1, moves); // Up-Left
+		Rules.checkSpot(this, position.x.intValue() - 1, position.y.intValue() + 1, moves); // Down-Left
+		Rules.checkSpot(this, position.x.intValue() + 1, position.y.intValue() - 1, moves); // Up-Right
+		Rules.checkSpot(this, position.x.intValue() + 1, position.y.intValue() + 1, moves); // Down-Right
 		
 		// Look for castling moves
 		if (!hasMoved() && !isInCheck())
@@ -42,14 +39,14 @@ public class King extends Piece
 				
 				if (pieceLeft != null && !pieceLeft.hasMoved() && pieceLeft instanceof Rook)
 				{
-					if (!Rules.pathContainsAnyPiece(board, position.x, position.y, 0, -1, position.y - leftY - 1))
-						moves.add(new Point(position.x, position.y - 2));
+					if (!Rules.pathContainsAnyPiece(board, position.x.intValue(), position.y.intValue(), 0, -1, position.y.intValue() - leftY - 1))
+						moves.add(new Point(position.x.intValue(), position.y.intValue() - 2));
 				}
 				
 				if (pieceRight != null && !pieceRight.hasMoved() && pieceRight instanceof Rook)
 				{
-					if (!Rules.pathContainsAnyPiece(board, position.x, position.y, 0, 1, rightY - position.y - 1))
-						moves.add(new Point(position.x, position.y + 2));
+					if (!Rules.pathContainsAnyPiece(board, position.x.intValue(), position.y.intValue(), 0, 1, rightY - position.y.intValue() - 1))
+						moves.add(new Point(position.x.intValue(), position.y.intValue() + 2));
 				}
 			}
 			else if (position.y == 0 || position.y == board.getHeight() - 1)
@@ -62,14 +59,14 @@ public class King extends Piece
 				
 				if (pieceLeft != null && !pieceLeft.hasMoved() && pieceLeft instanceof Rook)
 				{
-					if (!Rules.pathContainsAnyPiece(board, position.x, position.y, -1, 0, position.x - leftX - 1))
-						moves.add(new Point(position.x - 2, position.y));
+					if (!Rules.pathContainsAnyPiece(board, position.x.intValue(), position.y.intValue(), -1, 0, position.x.intValue() - leftX - 1))
+						moves.add(new Point(position.x.intValue() - 2, position.y.intValue()));
 				}
 				
 				if (pieceRight != null && !pieceRight.hasMoved() && pieceRight instanceof Rook)
 				{
-					if (!Rules.pathContainsAnyPiece(board, position.x, position.y, 1, 0, rightX - position.x - 1))
-						moves.add(new Point(position.x + 2, position.y));
+					if (!Rules.pathContainsAnyPiece(board, position.x.intValue(), position.y.intValue(), 1, 0, rightX - position.x.intValue() - 1))
+						moves.add(new Point(position.x.intValue() + 2, position.y.intValue()));
 				}
 			}
 		}

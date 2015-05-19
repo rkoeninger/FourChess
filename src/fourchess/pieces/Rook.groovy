@@ -1,30 +1,20 @@
 package fourchess.pieces;
-
 import java.awt.Point;
-import java.util.Set;
+import fourchess.*
+import static fourchess.Rules.*
 
-import fourchess.Board;
-import fourchess.Piece;
-import fourchess.Player;
-import fourchess.Rules;
-
-public class Rook extends Piece
-{
-	public Rook(Board board, Player owner)
-	{
-		super("R", 6, board, owner);
-	}
+class Rook extends Piece {
+	Rook(Board board, Player owner) { super("R", 6, board, owner) }
 	
-	public Set<Point> getValidMoves(Point position)
-	{
-		Set<Point> moves = super.getValidMoves(position);
-		Piece piece = board.getPiece(position.x.intValue(), position.y.intValue());
+	Set<Point> getValidMoves(Point position) {
+		def moves = super.getValidMoves(position)
+		def piece = board.getPiece(position.x.intValue(), position.y.intValue())
 		
-		Rules.checkPath(piece, position.x.intValue(), position.y.intValue(), 0, -1, moves); // Up
-		Rules.checkPath(piece, position.x.intValue(), position.y.intValue(), 0, 1, moves);  // Down
-		Rules.checkPath(piece, position.x.intValue(), position.y.intValue(), -1, 0, moves); // Left
-		Rules.checkPath(piece, position.x.intValue(), position.y.intValue(), 1, 0, moves);  // Right
+		checkPath(piece, position.x.intValue(), position.y.intValue(), 0, -1, moves) // Up
+		checkPath(piece, position.x.intValue(), position.y.intValue(), 0, 1, moves)  // Down
+		checkPath(piece, position.x.intValue(), position.y.intValue(), -1, 0, moves) // Left
+		checkPath(piece, position.x.intValue(), position.y.intValue(), 1, 0, moves)  // Right
 		
-		return moves;
+		moves
 	}
 }
