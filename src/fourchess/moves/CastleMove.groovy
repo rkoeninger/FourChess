@@ -63,8 +63,8 @@ class CastleMove implements Move {
 		board.putPiece(kx0, ky0, king)
 		board.removePiece(rx1, ry1)
 		board.putPiece(rx0, ry0, rook)
-		king.unmove()
-		rook.unmove()
+		king.undoMove()
+		rook.undoMove()
 		
 		movePerformed = false
 	}

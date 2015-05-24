@@ -1,67 +1,35 @@
-package fourchess;
+package fourchess
+import java.awt.*
 
-import java.awt.Point;
-import java.util.HashSet;
-import java.util.Set;
-
-public class Piece
-{
-	public final String type;
-	public final Player owner;
-	public final Board board;
-	public final int value;
-	private int moveCount = 0;
+class Piece {
+	final String type
+    final int value
+	final Player owner
+	final Board board
+	private int moveCount = 0
 	
-	public Piece(String type, int value, Board board, Player owner)
-	{
-		this.type = type;
-		this.value = value;
-		this.board = board;
-		this.owner = owner;
+	Piece(type, value, board, owner) {
+		this.type = type
+		this.value = value
+		this.board = board
+		this.owner = owner
 	}
 	
-	public Point getPosition()
-	{
-		return board.find(this);
-	}
+	Point getPosition() { board.find this }
 	
-	public int getX()
-	{
-		return board.find(this).x;
-	}
+	int getX() { board.find(this).x }
 	
-	public int getY()
-	{
-		return board.find(this).y;
-	}
+	int getY() { board.find(this).y }
 	
-	public void move()
-	{
-		moveCount++;
-	}
+	void move() { moveCount++ }
 	
-	public void unmove()
-	{
-		moveCount = Math.max(moveCount - 1, 0);
-	}
+	void undoMove() { moveCount = Math.max(moveCount - 1, 0) }
 	
-	public boolean hasMoved()
-	{
-		return moveCount > 0;
-	}
+	boolean hasMoved() { moveCount > 0 }
 	
-	public Set<Point> getValidMoves(Point position)
-	{
-		return new HashSet<Point>();
-	}
+	Set<Point> getValidMoves(Point position) { new HashSet<Point>() }
 	
-	public boolean hasAnyMove()
-	{
-		return !getValidMoves(board.find(this)).isEmpty();
-	}
+	boolean hasAnyMove() { !getValidMoves(board.find(this)).isEmpty() }
 	
-	public boolean canMove(Point start, Point end)
-	{
-		return getValidMoves(start).contains(end);
-	}
+	boolean canMove(start, end) { getValidMoves start contains end }
 }

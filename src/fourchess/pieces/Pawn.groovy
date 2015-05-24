@@ -16,6 +16,7 @@ class Pawn extends Piece {
 		def moves = super.getValidMoves(position)
 		
 		if (!hasMoved())
+            // TODO shouldn't be able to move 2 forward if another piece 1 space ahead
 			checkSpotMoveOnly(board, facing.shiftForward(facing.shiftForward(position)), moves)
 		
 		checkSpotMoveOnly(board, facing.shiftForward(position), moves)

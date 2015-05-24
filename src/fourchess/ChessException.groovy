@@ -1,9 +1,6 @@
-package fourchess;
+package fourchess
 
-public class ChessException extends RuntimeException
-{
-	public ChessException(String message)
-	{
-		super(message);
-	}
-}
+import groovy.transform.InheritConstructors
+
+@InheritConstructors
+class ChessException extends RuntimeException {}

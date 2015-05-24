@@ -223,7 +223,7 @@ public class Game
 		{
 		case E:
 			for (int y = 3; y < 11; ++y)
-				board.putPiece(12, y, new Pawn(board, player, position.getOpposite()));
+				board.putPiece(12, y, new Pawn(board, player, position.opposite));
 			
 			board.putPiece(13, 3, new Rook(board, player));
 			board.putPiece(13, 4, new Knight(board, player));
@@ -236,7 +236,7 @@ public class Game
 			break;
 		case N:
 			for (int x = 3; x < 11; ++x)
-				board.putPiece(x, 1, new Pawn(board, player, position.getOpposite()));
+				board.putPiece(x, 1, new Pawn(board, player, position.opposite));
 			
 			board.putPiece(3, 0, new Rook(board, player));
 			board.putPiece(4, 0, new Knight(board, player));
@@ -249,7 +249,7 @@ public class Game
 			break;
 		case W:
 			for (int y = 3; y < 11; ++y)
-				board.putPiece(1, y, new Pawn(board, player, position.getOpposite()));
+				board.putPiece(1, y, new Pawn(board, player, position.opposite));
 			
 			board.putPiece(0, 3, new Rook(board, player));
 			board.putPiece(0, 4, new Knight(board, player));
@@ -262,7 +262,7 @@ public class Game
 			break;
 		case S:
 			for (int x = 3; x < 11; ++x)
-				board.putPiece(x, 12, new Pawn(board, player, position.getOpposite()));
+				board.putPiece(x, 12, new Pawn(board, player, position.opposite));
 			
 			board.putPiece(3, 13, new Rook(board, player));
 			board.putPiece(4, 13, new Knight(board, player));

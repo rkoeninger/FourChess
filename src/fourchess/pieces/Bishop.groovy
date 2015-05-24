@@ -4,8 +4,9 @@ import static fourchess.Rules.*
 import java.awt.*
 
 class Bishop extends Piece {
-	Bishop(Board board, Player owner) { super("B", 4, board, owner) }
-	
+	Bishop(board, owner) { super("B", 4, board, owner) }
+
+    @Override
 	Set<Point> getValidMoves(Point position) {
 		def moves = super.getValidMoves(position)
 		def piece = board.getPiece(position.x.intValue(), position.y.intValue())
