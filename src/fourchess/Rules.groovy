@@ -31,18 +31,21 @@ class Rules
 		result
 	}
 	
-	public static Piece getPieceInPath(Board board, int x, int y, int dx, int dy)
-	{
+	static Piece getPieceInPath(Board board, int x, int y, int dx, int dy) {
 		dx = (int) Math.signum(dx)
 		dy = (int) Math.signum(dy)
 		x += dx
 		y += dy
 
-		while (board.isValidSpot(x, y))
-			if (board.hasPiece(x, y))
-				return board.getPiece(x, y)
+		while (board.isValidSpot(x, y)) {
+            if (board.hasPiece(x, y))
+                return board.getPiece(x, y)
 
-		return null
+            x += dx
+            y += dy
+        }
+
+		null
 	}
 	
 	/**
